@@ -1,0 +1,719 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Car Armrest Storage Box - AZIZI.STORE</title>
+    <meta name="description" content="Nggak perlu lagi repot cari barang kecil di mobil! Dengan Car Armrest Storage Box, semua kebutuhan mudah dijangkau dan tersimpan rapi.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+    <script src="https://unpkg.com/feather-icons"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#000000',
+                        secondary: '#4a4a4a',
+                        tertiary: '#9a9a9a',
+                        light: '#ffffff',
+                        accent: '#c0c0c0'
+                    },
+                    fontFamily: {
+                        heading: ['Poppins', 'sans-serif'],
+                        body: ['Roboto', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+        }
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Poppins', sans-serif;
+        }
+        .hero-bg {
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://cdn.hotishop.com/image/2022/08/d395152d26a29de6c53fbc2b9657ef20857bdea32f8eafba8f1a439e845dd837-600.jpeg');
+            background-size: cover;
+            background-position: center;
+        }
+        .glassmorphism {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.18);
+        }
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        .testimonial-card {
+            transition: all 0.3s ease;
+        }
+        .testimonial-card:hover {
+            transform: translateY(-3px);
+        }
+        .social-proof-popup {
+            animation: slideInRight 0.5s ease-out;
+        }
+        @keyframes slideInRight {
+            from {
+                transform: translateX(100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+        .lightbox {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.9);
+        }
+        .lightbox-content {
+            margin: auto;
+            display: block;
+            width: 80%;
+            max-width: 700px;
+            max-height: 80%;
+            margin-top: 5%;
+        }
+        .close {
+            position: absolute;
+            top: 15px;
+            right: 35px;
+            color: #f1f1f1;
+            font-size: 40px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        .carousel-container {
+            position: relative;
+            overflow: hidden;
+        }
+        .carousel-track {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+        .carousel-slide {
+            min-width: 100%;
+        }
+        .carousel-indicators {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+        .indicator {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: #ccc;
+            margin: 0 5px;
+            cursor: pointer;
+        }
+        .indicator.active {
+            background-color: #000;
+        }
+        .carousel-arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0,0,0,0.5);
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            z-index: 10;
+        }
+        .prev {
+            left: 10px;
+        }
+        .next {
+            right: 10px;
+        }
+        .highlight {
+            background-color: #fff3cd;
+            padding: 2px 4px;
+            border-radius: 3px;
+        }
+        .ooef form {
+            background: linear-gradient(135deg, #f5f7fa 0%, #e4e7eb 100%) !important;
+            border-radius: 16px !important;
+            padding: 30px !important;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1) !important;
+        }
+        .ooef input, .ooef select, .ooef textarea {
+            font-family: 'Roboto', sans-serif !important;
+            border-radius: 8px !important;
+            padding: 12px 15px !important;
+            border: 1px solid #ddd !important;
+        }
+        .ooef button {
+            background: linear-gradient(to right, #000000, #4a4a4a) !important;
+            font-family: 'Poppins', sans-serif !important;
+            font-weight: 600 !important;
+            border-radius: 8px !important;
+            padding: 14px 20px !important;
+            transition: all 0.3s ease !important;
+        }
+        .ooef button:hover {
+            transform: translateY(-2px) !important;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2) !important;
+        }
+    </style>
+</head>
+<body class="bg-light text-secondary">
+    <!-- Navigation -->
+    <nav class="fixed w-full bg-white shadow-md z-50">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="text-2xl font-heading font-bold text-primary">AZIZI<span class="text-accent">.STORE</span></div>
+            <div class="hidden md:flex space-x-6">
+                <a href="#" class="font-body text-secondary hover:text-primary transition">Beranda</a>
+                <a href="#produk" class="font-body text-secondary hover:text-primary transition">Produk</a>
+                <a href="#testimoni" class="font-body text-secondary hover:text-primary transition">Testimoni</a>
+                <a href="#kontak" class="font-body text-secondary hover:text-primary transition">Kontak</a>
+            </div>
+            <button class="md:hidden text-primary">
+                <i data-feather="menu"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-bg min-h-screen flex items-center pt-16">
+        <div class="container mx-auto px-4 py-20 text-center">
+            <h1 class="text-4xl md:text-6xl font-heading font-bold text-light mb-6" data-aos="fade-up">
+                Car Armrest Storage Box
+            </h1>
+            <p class="text-xl md:text-2xl text-light mb-8 max-w-3xl mx-auto" data-aos="fade-up" data-aos-delay="100">
+                Solusi penyimpanan pintar untuk mobil Anda. Nggak perlu lagi repot cari barang kecil di mobil!
+            </p>
+            <div class="flex flex-col sm:flex-row justify-center gap-4 mb-12" data-aos="fade-up" data-aos-delay="200">
+                <div class="flex items-center justify-center bg-black bg-opacity-30 rounded-full px-6 py-3">
+                    <i data-feather="truck" class="text-light mr-2"></i>
+                    <span class="text-light font-body">Gratis Ongkir</span>
+                </div>
+                <div class="flex items-center justify-center bg-black bg-opacity-30 rounded-full px-6 py-3">
+                    <i data-feather="shield" class="text-light mr-2"></i>
+                    <span class="text-light font-body">Garansi 1 Minggu</span>
+                </div>
+                <div class="flex items-center justify-center bg-black bg-opacity-30 rounded-full px-6 py-3">
+                    <i data-feather="clock" class="text-light mr-2"></i>
+                    <span class="text-light font-body">Pengiriman Cepat</span>
+                </div>
+            </div>
+            <div class="bg-accent inline-block px-4 py-2 rounded-lg mb-8" data-aos="fade-up" data-aos-delay="300">
+                <span class="line-through text-secondary mr-3">Rp 379.704</span>
+                <span class="text-primary font-bold text-xl">Rp 185.352</span>
+                <span class="ml-2 bg-red-600 text-light px-2 py-1 rounded text-sm">51% OFF</span>
+            </div>
+            <div class="mb-12" data-aos="fade-up" data-aos-delay="400">
+                <a href="#order" class="inline-block bg-gradient-to-r from-primary to-secondary text-light font-heading font-bold text-lg px-8 py-4 rounded-full shadow-lg hover:shadow-xl transition duration-300 transform hover:-translate-y-1">
+                    Pesan Sekarang
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Product Showcase -->
+    <section id="produk" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-3xl md:text-4xl font-heading font-bold text-primary mb-4">Kenapa Memilih Kami?</h2>
+                <p class="text-xl text-secondary max-w-2xl mx-auto">Desain pas di armrest mobil, bahan kokoh & tahan lama, membuat kabin lebih rapi & terorganisir</p>
+            </div>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-20">
+                <div data-aos="fade-right">
+                    <img src="https://cdn.hotishop.com/image/2022/08/d395152d26a29de6c53fbc2b9657ef20857bdea32f8eafba8f1a439e845dd837-600.jpeg" alt="Car Armrest Storage Box" class="rounded-xl shadow-xl w-full">
+                </div>
+                <div data-aos="fade-left">
+                    <h3 class="text-2xl font-heading font-bold text-primary mb-6">Fitur Unggulan Produk</h3>
+                    <ul class="space-y-4">
+                        <li class="flex items-start">
+                            <i data-feather="check-circle" class="text-green-500 mt-1 mr-3"></i>
+                            <span class="font-body text-lg">Desain pas di armrest mobil sehingga tidak mengganggu kenyamanan berkendara</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i data-feather="check-circle" class="text-green-500 mt-1 mr-3"></i>
+                            <span class="font-body text-lg">Bahan kokoh & tahan lama dari material berkualitas tinggi</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i data-feather="check-circle" class="text-green-500 mt-1 mr-3"></i>
+                            <span class="font-body text-lg">Membuat kabin lebih rapi & terorganisir dengan kompartemen penyimpanan yang optimal</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i data-feather="check-circle" class="text-green-500 mt-1 mr-3"></i>
+                            <span class="font-body text-lg">Instalasi mudah tanpa merusak interior mobil</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i data-feather="check-circle" class="text-green-500 mt-1 mr-3"></i>
+                            <span class="font-body text-lg">Kompatibel dengan sebagian besar jenis mobil</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="mb-20">
+                <h3 class="text-2xl font-heading font-bold text-primary text-center mb-10">Galeri Produk</h3>
+                <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+                    <div class="overflow-hidden rounded-lg shadow-md product-card" data-aos="fade-up">
+                        <img src="https://m.media-amazon.com/images/I/71nu6XSn5tL._AC_SL1500_.jpg" alt="Galeri Produk 1" class="w-full h-48 object-cover cursor-pointer" onclick="openLightbox(this.src)">
+                    </div>
+                    <div class="overflow-hidden rounded-lg shadow-md product-card" data-aos="fade-up" data-aos-delay="100">
+                        <img src="https://m.media-amazon.com/images/I/71oNBUR1TML._AC_SL1500_.jpg" alt="Galeri Produk 2" class="w-full h-48 object-cover cursor-pointer" onclick="openLightbox(this.src)">
+                    </div>
+                    <div class="overflow-hidden rounded-lg shadow-md product-card" data-aos="fade-up" data-aos-delay="200">
+                        <img src="https://m.media-amazon.com/images/I/7199CoZ+n2L._AC_SL1500_.jpg" alt="Galeri Produk 3" class="w-full h-48 object-cover cursor-pointer" onclick="openLightbox(this.src)">
+                    </div>
+                    <div class="overflow-hidden rounded-lg shadow-md product-card" data-aos="fade-up" data-aos-delay="300">
+                        <img src="https://m.media-amazon.com/images/I/71c16PF9zsL._AC_SL1500_.jpg" alt="Galeri Produk 4" class="w-full h-48 object-cover cursor-pointer" onclick="openLightbox(this.src)">
+                    </div>
+                    <div class="overflow-hidden rounded-lg shadow-md product-card" data-aos="fade-up" data-aos-delay="400">
+                        <img src="https://m.media-amazon.com/images/I/71-okxAIkpL._AC_SL1500_.jpg" alt="Galeri Produk 5" class="w-full h-48 object-cover cursor-pointer" onclick="openLightbox(this.src)">
+                    </div>
+                    <div class="overflow-hidden rounded-lg shadow-md product-card" data-aos="fade-up" data-aos-delay="500">
+                        <img src="https://m.media-amazon.com/images/I/71zHfNb9TTL._AC_SL1500_.jpg" alt="Galeri Produk 6" class="w-full h-48 object-cover cursor-pointer" onclick="openLightbox(this.src)">
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center">
+                <h3 class="text-2xl font-heading font-bold text-primary mb-6">Demo Produk</h3>
+                <div class="max-w-3xl mx-auto bg-black rounded-xl overflow-hidden shadow-xl" data-aos="fade-up">
+                    <img src="https://cdn.hotishop.com/image/18403d91f8a72c0ceaf6c1989344d765746e9099.gif" alt="Demo Produk" class="w-full">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimoni" class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-3xl md:text-4xl font-heading font-bold text-primary mb-4">Apa Kata Pelanggan Kami</h2>
+                <p class="text-xl text-secondary max-w-2xl mx-auto">Ulasan langsung dari pelanggan yang telah menggunakan produk kami</p>
+            </div>
+
+            <div class="carousel-container mb-12" data-aos="fade-up">
+                <div class="carousel-track">
+                    <!-- Testimonial 1 -->
+                    <div class="carousel-slide">
+                        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                            <div class="testimonial-card bg-gray-50 rounded-xl p-6 shadow-md">
+                                <div class="flex items-center mb-4">
+                                    <div class="w-10 h-10 rounded-full bg-accent flex items-center justify-center mr-3">
+                                        <span class="font-heading font-bold text-primary">F</span>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-heading font-bold text-primary">fayyola.syafa</h4>
+                                        <div class="flex text-yellow-400">
+                                            <i data-feather="star" class="fill-current"></i>
+                                            <i data-feather="star" class="fill-current"></i>
+                                            <i data-feather="star" class="fill-current"></i>
+                                            <i data-feather="star" class="fill-current"></i>
+                                            <i data-feather="star" class="fill-current"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                                <p class="font-body text-secondary mb-4">"Interior mobil kelihatan lebih <span class="highlight">clean</span> dan <span class="highlight">stylish</span>. Simple tapi bikin <span class="highlight">nyaman banget</span> pas nyetir."</p>
+                                <img src="https://down-id.img.susercontent.com/file/id-11134103-7r98v-lx7m2ub3hu31fb.webp" alt="Review Media" class="w-20 h-20 rounded-lg cursor-pointer" onclick="openLightbox(this.src)">
+                            </div>
+                            
+                            <div class="testimonial-card bg-gray-50 rounded-xl p-6 shadow-md">
+                                <div class="flex items-center mb-4">
+                                    <div class="w-10 h-10 rounded-full bg-accent flex items-center justify-center mr-3">
+                                        <span class="font-heading font-bold text-primary">N</span>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-heading font-bold text-primary">nursyamsah</h4>
+                                        <div class="flex text-yellow-400">
+                                            <i data-feather="star" class="fill-current"></i>
+                                            <i data-feather="star" class="fill-current"></i>
+                                            <i data-feather="star" class="fill-current"></i>
+                                            <i data-feather="star" class="fill-current"></i>
+                                            <i data-feather="star" class="fill-current"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                                <p class="font-body text-secondary mb-4">"Sekarang <span class="highlight">nggak ribet lagi</span> nyari koin, kartu parkir, atau HP. Semua tersimpan <span class="highlight">rapi</span> di armrest. <span class="highlight">Bahan kuat</span> dan pas banget di mobil saya."</p>
+                                <img src="https://down-id.img.susercontent.com/file/id-11134103-7r98y-lv1t0yg2pt0s41.webp" alt="Review Media" class="w-20 h-20 rounded-lg cursor-pointer" onclick="openLightbox(this.src)">
+                            </div>
+                            
+                            <div class="testimonial-card bg-gray-50 rounded-xl p-6 shadow-md">
+                                <div class="flex items-center mb-4">
+                                    <div class="w-10 h-10 rounded-full bg-accent flex items-center justify-center mr-3">
+                                        <span class="font-heading font-bold text-primary">G</span>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-heading font-bold text-primary">gendis.jawi</h4>
+                                        <div class="flex text-yellow-400">
+                                            <i data-feather="star" class="fill-current"></i>
+                                            <i data-feather="star" class="fill-current"></i>
+                                            <i data-feather="star" class="fill-current"></i>
+                                            <i data-feather="star" class="fill-current"></i>
+                                            <i data-feather="star" class="fill-current"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                                <p class="font-body text-secondary mb-4">"<span class="highlight">Materialnya kokoh</span>, muat banyak barang kecil, dan <span class="highlight">gampang dibersihkan</span>. Recommended banget buat yang suka mobil <span class="highlight">rapi</span>."</p>
+                                <img src="https://down-id.img.susercontent.com/file/id-11134103-7r98x-lq1sk7sxp4ha2a.webp" alt="Review Media" class="w-20 h-20 rounded-lg cursor-pointer" onclick="openLightbox(this.src)">
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Testimonial 2 (Duplicate for carousel effect) -->
+                    <div class="carousel-slide">
+                        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                            <div class="testimonial-card bg-gray-50 rounded-xl p-6 shadow-md">
+                                <div class="flex items-center mb-4">
+                                    <div class="w-10 h-10 rounded-full bg-accent flex items-center justify-center mr-3">
+                                        <span class="font-heading font-bold text-primary">N</span>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-heading font-bold text-primary">nursyamsah</h4>
+                                        <div class="flex text-yellow-400">
+                                            <i data-feather="star" class="fill-current"></i>
+                                            <i data-feather="star" class="fill-current"></i>
+                                            <i data-feather="star" class="fill-current"></i>
+                                            <i data-feather="star" class="fill-current"></i>
+                                            <i data-feather="star" class="fill-current"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                                <p class="font-body text-secondary mb-4">"Sekarang <span class="highlight">nggak ribet lagi</span> nyari koin, kartu parkir, atau HP. Semua tersimpan <span class="highlight">rapi</span> di armrest. <span class="highlight">Bahan kuat</span> dan pas banget di mobil saya."</p>
+                                <img src="https://down-id.img.susercontent.com/file/id-11134103-7r98y-lv1t0yg2pt0s41.webp" alt="Review Media" class="w-20 h-20 rounded-lg cursor-pointer" onclick="openLightbox(this.src)">
+                            </div>
+                            
+                            <div class="testimonial-card bg-gray-50 rounded-xl p-6 shadow-md">
+                                <div class="flex items-center mb-4">
+                                    <div class="w-10 h-10 rounded-full bg-accent flex items-center justify-center mr-3">
+                                        <span class="font-heading font-bold text-primary">G</span>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-heading font-bold text-primary">gendis.jawi</h4>
+                                        <div class="flex text-yellow-400">
+                                            <i data-feather="star" class="fill-current"></i>
+                                            <i data-feather="star" class="fill-current"></i>
+                                            <i data-feather="star" class="fill-current"></i>
+                                            <i data-feather="star" class="fill-current"></i>
+                                            <i data-feather="star" class="fill-current"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                                <p class="font-body text-secondary mb-4">"<span class="highlight">Materialnya kokoh</span>, muat banyak barang kecil, dan <span class="highlight">gampang dibersihkan</span>. Recommended banget buat yang suka mobil <span class="highlight">rapi</span>."</p>
+                                <img src="https://down-id.img.susercontent.com/file/id-11134103-7r98x-lq1sk7sxp4ha2a.webp" alt="Review Media" class="w-20 h-20 rounded-lg cursor-pointer" onclick="openLightbox(this.src)">
+                            </div>
+                            
+                            <div class="testimonial-card bg-gray-50 rounded-xl p-6 shadow-md">
+                                <div class="flex items-center mb-4">
+                                    <div class="w-10 h-10 rounded-full bg-accent flex items-center justify-center mr-3">
+                                        <span class="font-heading font-bold text-primary">F</span>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-heading font-bold text-primary">fayyola.syafa</h4>
+                                        <div class="flex text-yellow-400">
+                                            <i data-feather="star" class="fill-current"></i>
+                                            <i data-feather="star" class="fill-current"></i>
+                                            <i data-feather="star" class="fill-current"></i>
+                                            <i data-feather="star" class="fill-current"></i>
+                                            <i data-feather="star" class="fill-current"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                                <p class="font-body text-secondary mb-4">"Interior mobil kelihatan lebih <span class="highlight">clean</span> dan <span class="highlight">stylish</span>. Simple tapi bikin <span class="highlight">nyaman banget</span> pas nyetir."</p>
+                                <img src="https://down-id.img.susercontent.com/file/id-11134103-7r98v-lx7m2ub3hu31fb.webp" alt="Review Media" class="w-20 h-20 rounded-lg cursor-pointer" onclick="openLightbox(this.src)">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <button class="carousel-arrow prev">
+                    <i data-feather="chevron-left"></i>
+                </button>
+                <button class="carousel-arrow next">
+                    <i data-feather="chevron-right"></i>
+                </button>
+                
+                <div class="carousel-indicators">
+                    <div class="indicator active" data-index="0"></div>
+                    <div class="indicator" data-index="1"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing & Promo -->
+    <section class="py-20 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto bg-white rounded-2xl shadow-xl overflow-hidden" data-aos="fade-up">
+                <div class="md:flex">
+                    <div class="md:w-1/2 p-8">
+                        <h3 class="text-2xl font-heading font-bold text-primary mb-4">Penawaran Spesial Hari Ini!</h3>
+                        <div class="mb-6">
+                            <span class="text-3xl font-heading font-bold text-primary">Rp 185.352</span>
+                            <span class="ml-3 text-xl text-secondary line-through">Rp 379.704</span>
+                            <span class="ml-3 bg-red-600 text-light px-3 py-1 rounded-full text-sm">51% OFF</span>
+                        </div>
+                        <p class="font-body text-secondary mb-6">Hemat Rp 194.352 hanya hari ini! Penawaran terbatas, buruan pesan sebelum kehabisan stok.</p>
+                        
+                        <div class="bg-yellow-50 border-l-4 border-yellow-400 p-4 mb-6">
+                            <div class="flex">
+                                <i data-feather="clock" class="text-yellow-400 mr-2 mt-1"></i>
+                                <div>
+                                    <p class="font-bold text-yellow-700">Penawaran Berakhir Dalam:</p>
+                                    <div id="countdown" class="flex space-x-2 mt-2">
+                                        <div class="text-center">
+                                            <span id="hours" class="block text-2xl font-bold text-primary">00</span>
+                                            <span class="text-sm text-secondary">Jam</span>
+                                        </div>
+                                        <div class="text-center">
+                                            <span id="minutes" class="block text-2xl font-bold text-primary">00</span>
+                                            <span class="text-sm text-secondary">Menit</span>
+                                        </div>
+                                        <div class="text-center">
+                                            <span id="seconds" class="block text-2xl font-bold text-primary">00</span>
+                                            <span class="text-sm text-secondary">Detik</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-center mb-6">
+                            <i data-feather="check-circle" class="text-green-500 mr-2"></i>
+                            <span class="font-body">Garansi Resmi 1 </span>
+                        </div>
+                        <div class="flex items-center mb-6">
+                            <i data-feather="check-circle" class="text-green-500 mr-2"></i>
+                            <span class="font-body">Gratis Ongkir Seluruh Indonesia</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i data-feather="check-circle" class="text-green-500 mr-2"></i>
+                            <span class="font-body">Pembayaran Aman & Terpercaya</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Order Form -->
+    <section id="order" class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto">
+                <div class="text-center mb-12" data-aos="fade-up">
+                    <h2 class="text-3xl md:text-4xl font-heading font-bold text-primary mb-4">Pesan Sekarang</h2>
+                    <p class="text-xl text-secondary max-w-2xl mx-auto">Isi formulir di bawah ini untuk memesan Car Armrest Storage Box</p>
+                </div>
+                
+                <div class="glassmorphism rounded-2xl p-8 shadow-xl" data-aos="fade-up">
+                    <!-- OrderOnline Embed Code - v8.0.4 -->
+                    <div class="ooef">
+                        <form class="orderonline-embed-form" data-username="nava" data-product-slug="car-armrest-storage-box" data-product-id="68bc852af1c328e224089f30" id="oo-embed-form-car-armrest-storage-box-149" data-origin="orderonline">
+                            <div class="ooef-loader">
+                                <style>
+                                    .ooef-loader{visibility: hidden;opacity: 0;position: absolute;left: 0;right: 0;top: 0;bottom: 0;display: flex;justify-content: center;align-items: center;flex-direction: column;animation: ooLoadingIn 10s ease;-webkit-animation: ooLoadingIn 10s ease;animation-fill-mode: forwards;overflow: hidden}
+                                    @keyframes ooLoadingIn{0%{visibility: hidden;opacity: 0}20%{visibility: visible;opacity: 0}100%{visibility: visible;opacity: 1}}
+                                    @-webkit-keyframes ooLoadingIn{0%{visibility: hidden;opacity: 0}20%{visibility: visible;opacity: 0}100%{visibility: visible;opacity: 1}}
+                                    .ooef-loader>div,.ooef-loader>div:after{border-radius: 50%;width: 2.5rem;height: 2.5rem}
+                                    .ooef-loader>div{font-size: 10px;position: relative;text-indent: -9999em;border: .25rem solid #f5f5f5;border-left: .25rem solid #55c4cf;-webkit-transform: translateZ(0);-ms-transform: translateZ(0);transform: translateZ(0);-webkit-animation: ooLoading 1.1s infinite linear;animation: ooLoading 1.1s infinite linear}
+                                    .ooef-loader.error>div{border-left: .25rem solid #ff4500;animation-duration: 5s}
+                                    @-webkit-keyframes ooLoading{0%{-webkit-transform: rotate(0);transform: rotate(0)}100%{-webkit-transform: rotate(360deg);transform: rotate(360deg)}}
+                                    @keyframes ooLoading{0%{-webkit-transform: rotate(0);transform: rotate(0)}100%{-webkit-transform: rotate(360deg);transform: rotate(360deg)}}
+                                </style>
+                                <div aria-live="polite" role="status">
+                                    <div>Loading...</div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <script>
+                        if (typeof xLogError != 'function') {
+                            var xLogError = function (error) {
+                                var req = new XMLHttpRequest();
+                                var payload = JSON.stringify({ url: document.location.href, line: error.line, stack: error.stack });
+                                var params = 'message=' + encodeURIComponent(error.name) + '&payload=' + encodeURIComponent(payload) + '&type=embed&level=error';
+                                req.open('POST', 'https://api.orderonline.id/log', true);
+                                req.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+                                req.send(params);
+                            };
+                        }
+                        try {
+                            if (typeof xEmbedScript != 'function') {
+                                var xEmbedScript = function () {
+                                    !function(w, d, e, v, id, t, s) {
+                                        if (d.getElementById(id)) return;
+                                        t = d.createElement(e);t.async = !0;t.src = v;t.id = id;
+                                        s = d.getElementsByTagName(e)[0]; s.parentNode.insertBefore(t, s);
+                                    }(window, document, 'script', 'https://cdn.orderonline.id/js/embed-v2-slim.min.js?v=8.0.4', 'oo-embed-js');
+                                };
+                            }
+                            if (typeof xEmbedInit != 'function') {
+                                var xEmbedInit = function (w, n) {
+                                    if (w.ooe) return; n = w.ooe = function() { n.callMethod ? n.callMethod.apply(n, arguments) : n.queue.push(arguments) }; if (!w._ooe) w._ooe = n; n.push = n;n.loaded = !0;n.version = '8.0.4';n.queue = []; };
+                            }
+                            xEmbedInit(window);
+                            ooe('setup', 'redirect', 'https://nava.orderonline.id');
+                            ooe('init', '5f119cd08dcbdb2737678706', '68bc852af1c328e224089f30', '68bc852af1c328e224089f31', 'oo-embed-form-car-armrest-storage-box-149', {"mode":"page","action":"Klik untuk pemesanan","title":"Form Pemesanan","triggerPixel":true,"triggerGtm":true});
+                            if (!window.jQuery) {
+                                !function(w, d, e, v, id, t, s) {
+                                    if (d.getElementById(id)) return; t = d.createElement(e);t.async = !0;t.src = v;t.id = id; t.addEventListener('load', xEmbedScript); s = d.getElementsByTagName(e)[0]; s.parentNode.insertBefore(t, s);
+                                }(window, document, 'script', 'https://cdn.orderonline.id/js/vendor/jquery.min.js', 'oo-embed-jquery');
+                            } else {
+                                xEmbedScript();
+                            }
+                        } catch (e) {
+                            xLogError(e); throw e;
+                        }
+                    </script>
+                    <!-- End OrderOnline Embed Code -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Lightbox -->
+    <div id="lightbox" class="lightbox">
+        <span class="close" onclick="closeLightbox()">&times;</span>
+        <img class="lightbox-content" id="lightbox-img">
+    </div>
+
+    <!-- Social Proof Popup -->
+    <div id="social-proof" class="fixed top-5 right-5 bg-white shadow-lg rounded-lg border-l-4 border-accent p-4 social-proof-popup z-50 hidden">
+        <div class="flex items-center">
+            <div class="w-10 h-10 rounded-full bg-accent flex items-center justify-center mr-3">
+                <span class="font-heading font-bold text-primary" id="customer-initial">V</span>
+            </div>
+            <div>
+                <p class="font-body text-sm text-primary" id="social-proof-text"></p>
+                <p class="font-body text-xs text-tertiary" id="social-proof-time"></p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Initialize Feather Icons
+        feather.replace();
+
+        // Initialize AOS
+        AOS.init({
+            duration: 800,
+            easing: 'ease-in-out'
+        });
+
+        // Countdown Timer
+        function updateCountdown() {
+            const now = new Date();
+            const target = new Date(now);
+            target.setDate(target.getDate() + 1);
+            target.setHours(0, 0, 0, 0);
+            
+            const diff = target - now;
+            
+            const hours = Math.floor(diff / (1000 * 60 * 60));
+            const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+            
+            document.getElementById('hours').textContent = hours.toString().padStart(2, '0');
+            document.getElementById('minutes').textContent = minutes.toString().padStart(2, '0');
+            document.getElementById('seconds').textContent = seconds.toString().padStart(2, '0');
+        }
+        
+        setInterval(updateCountdown, 1000);
+        updateCountdown();
+
+        // Lightbox Functionality
+        function openLightbox(src) {
+            document.getElementById('lightbox').style.display = 'block';
+            document.getElementById('lightbox-img').src = src;
+        }
+        
+        function closeLightbox() {
+            document.getElementById('lightbox').style.display = 'none';
+        }
+        
+        document.getElementById('lightbox').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeLightbox();
+            }
+        });
+
+        // Carousel Functionality
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.carousel-slide');
+        const indicators = document.querySelectorAll('.indicator');
+        const totalSlides = slides.length;
+        
+        function showSlide(index) {
+            if (index >= totalSlides) currentSlide = 0;
+            else if (index < 0) currentSlide = totalSlides - 1;
+            else currentSlide = index;
+            
+            document.querySelector('.carousel-track').style.transform = `translateX(-${currentSlide * 100}%)`;
+            
+            indicators.forEach((indicator, i) => {
+                indicator.classList.toggle('active', i === currentSlide);
+            });
+        }
+        
+        document.querySelector('.prev').addEventListener('click', () => showSlide(currentSlide - 1));
+        document.querySelector('.next').addEventListener('click', () => showSlide(currentSlide + 1));
+        
+        indicators.forEach(indicator => {
+            indicator.addEventListener('click', () => {
+                showSlide(parseInt(indicator.getAttribute('data-index')));
+            });
+        });
+        
+        // Auto slide
+        setInterval(() => {
+            showSlide(currentSlide + 1);
+        }, 5000);
+
+        // Social Proof Popup
+        const customers = ['Vina', 'Dina', 'Kartika', 'Lestari', 'Putri', 'Maya Sari', 'Rani', 'Permata', 'Lestari F'];
+        const cities = ['Jakarta', 'Surabaya', 'Bandung', 'Medan', 'Bekasi', 'Tangerang', 'Depok', 'Semarang'];
+        const socialProofElement = document.getElementById('social-proof');
+        const socialProofText = document.getElementById('social-proof-text');
+        const socialProofTime = document.getElementById('social-proof-time');
+        const customerInitial = document.getElementById('customer-initial');
+        
+        function showSocialProof() {
+            const randomCustomer = customers[Math.floor(Math.random() * customers.length)];
+            const randomCity = cities[Math.floor(Math.random() * cities.length)];
+            const randomMinutes = Math.floor(Math.random() * 15) + 1;
+            const initial = randomCustomer.charAt(0);
+            
+            customerInitial.textContent = initial;
+            socialProofText.textContent = `${randomCustomer} dari ${randomCity} baru saja memesan Car Armrest Storage Box`;
+            socialProofTime.textContent = `${randomMinutes} menit yang lalu`;
+            
+            socialProofElement.classList.remove('hidden');
+            socialProofElement.classList.add('social-proof-popup');
+            
+            setTimeout(() => {
+                socialProofElement.classList.add('hidden');
+            }, 5000);
+        }
+        
+        setInterval(showSocialProof, 8000);
+        
+        // Show on page load after 3 seconds
+        setTimeout(showSocialProof, 3000);
+    </script>
+</body>
+</html>
